@@ -1,12 +1,14 @@
-package com.unbosque.DTO;
+package com.ubosque.DTO;
 
 public class Usuario {
+	//atributos de la clase
 	private int cedulaUsuario;
 	private String emailUsuario;
 	private String nombreUsuario;
 	private String password;
 	private String usuario;
-	//metodos Getter and Setter
+	
+	//Método getter and setter
 	public int getCedulaUsuario() {
 		return cedulaUsuario;
 	}
