@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Connection {
 	String database="tienda";
 	String user="root";
-	String password="admin";
+	String password="welcome123";
 	String url= "jdbc:mysql://localhost/"+database;
 	java.sql.Connection connection = null;
 	
