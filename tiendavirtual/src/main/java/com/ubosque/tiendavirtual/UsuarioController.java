@@ -3,12 +3,15 @@ import com.ubosque.DAO.UsuarioDAO;
 import com.ubosque.DTO.Usuario;
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 
 
@@ -25,13 +28,7 @@ public class UsuarioController {
 }
 	
 	@PostMapping
-	public Usuario createUser() {
-		Usuario usuario = new Usuario();
-		usuario.setCedulaUsuario(4);
-		usuario.setEmailUsuario("usuario@prueba.com");
-		usuario.setNombreUsuario("nombre_usuario");
-		usuario.setPassword("123");
-		usuario.setUsuario("usuario04");
+	public Usuario createUser(@RequestBody Usuario usuario) {
 		usuarioDAO.saveUser(usuario);
 		return usuario;
 	}
@@ -41,18 +38,15 @@ public class UsuarioController {
 		return usuarioDAO.readUserByID(cedula);
 	}
 
-	@PutMapping
-	public Usuario updateUser() {
-		Usuario usuario = new Usuario();
-		
+	@PutMapping()
+	public Usuario updateUser(@RequestBody Usuario usuario) {
 		usuarioDAO.updateUser(usuario);
-		return usuario;
-		
-	//@DeleteMapping	
-		
-		
+		return usuario;	
 	}
 	
-	
+	@DeleteMapping(value="{cedula}")
+	public void deleteUser(@PathVariable("cedula") int cedula) {
+		usuarioDAO.deleteUser(cedula);
+	}	
 	
 }
