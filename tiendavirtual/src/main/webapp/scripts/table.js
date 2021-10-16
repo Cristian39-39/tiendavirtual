@@ -122,9 +122,7 @@ $('#actualizarUsuario').click(function(){
         data:JSON.stringify(user), //esto permite convertir el string de user a objeto JSON
         url:"http://localhost:8080/Usuarios/",
         contentType:"application/json"
-    }).done(function(){
-        location.reload();
-    })   
+    }) 
 })
 
 //POST= crear INSERT
@@ -142,8 +140,5 @@ $('#crearUsuario').click(function(){
         data:JSON.stringify(user), //esto permite convertir el string de user a objeto JSON
         url:"http://localhost:8080/Usuarios/",
         contentType:"application/json"
-    })
-    
+    })    
 })
-
-     

@@ -48,5 +48,4 @@ public class UsuarioController {
 	public void deleteUser(@PathVariable("cedula") int cedula) {
 		usuarioDAO.deleteUser(cedula);
 	}	
-	
 }

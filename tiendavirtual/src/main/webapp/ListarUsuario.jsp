@@ -32,9 +32,6 @@
             </tr>
         </tfoot>
 	</table>
-	<label id = "nombreUsuario"></label>
-	<label id = "contrasenaUsuario"></label>
-	<label id = "emailUsuario"></label>
 	
 	 <form class ="form1" name="form1" id="form1">
         <h2>Registrar usuario</h2>
