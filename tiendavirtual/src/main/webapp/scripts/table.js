@@ -2,10 +2,11 @@
  * 
  */
 var saveme =  $.ajax({
-        type: "POST",
+        type: "GET",
         url: "http://localhost:8080/Usuarios/Lista", //ruta de la API consultaremos.
       
         success: function(data) {
+        	console.log(data)
           $.each(data, function(i, item) {
 	          lista = document.getElementById("cuerpoTabla");
 	          var tr = document.createElement("tr");
@@ -25,33 +26,35 @@ var saveme =  $.ajax({
 	          columna5.innerHTML = item.usuario;
 
 			  var columna6 = document.createElement("th");
-			  var button = document.createElement("button");
-	          var idbutton = document.createAttribute("id");
-			  idbutton.value=item.cedulaUsuario;
-			  button.setAttributeNode(idbutton);
-	
-			  var classbutton = document.createAttribute("class");
-			  classbutton.value="btn btn-info btnConsultar";
-			  button.setAttributeNode(classbutton);
-	
-			  var icon = document.createAttribute("i");
-	          var classicon = document.createAttribute("class");
-			  classicon.value="fa fa-search ";
-			  icon.setAttributeNode(classicon);
-	
-	          var button2 = document.createElement("button");
-	          var idbutton2 = document.createAttribute("id");
-			  idbutton.value=item.cedulaUsuario;
-			  button.setAttributeNode(idbutton2);
-	
-	          var classbutton2 = document.createAttribute("class");
-			  classbutton2.value="btn btn-info btnEliminar";
-			  button.setAttributeNode(classbutton2);
-	
-	          var icon2 = document.createAttribute("i");
-	          var classicon2 = document.createAttribute("class");
-			  classicon2.value="fa fa-trash ";
-			  icon2.setAttributeNode(classicon2);
+			  //
+				var button = document.createElement("button");
+				var idButton = document.createAttribute("id");
+				idButton.value = item.cedulaUsuario;
+				button.setAttributeNode(idButton);
+				
+				var classButton = document.createAttribute("class");
+				classButton.value = "btn btn-info btnConsultar";
+				button.setAttributeNode(classButton);
+				
+				var icon = document.createElement("i");
+				var classIcon = document.createAttribute("class");
+				classIcon.value = "fa fa-search";
+				icon.setAttributeNode(classIcon);
+				//
+				var button2 = document.createElement("button");
+				var idButton2 = document.createAttribute("id");
+				idButton2.value = item.cedulaUsuario;
+				button2.setAttributeNode(idButton2);
+				
+				var classButton2 = document.createAttribute("class");
+				classButton2.value = "btn btn-danger btnEliminar";
+				button2.setAttributeNode(classButton2);
+				
+				var icon2 = document.createElement("i");
+				var classIcon2 = document.createAttribute("class");
+				classIcon2.value = "fa fa-duotone fa-user-large-slash";
+				icon2.setAttributeNode(classIcon2);
+				//
    
 	          lista.appendChild(tr);
 	          tr.appendChild(columna1);
@@ -63,7 +66,7 @@ var saveme =  $.ajax({
               columna6.appendChild(button);
 			  button.appendChild(icon);
 	          columna6.appendChild(button2);
-			  button.appendChild(icon2);
+			  button2.appendChild(icon2);
 
              
 	       
@@ -86,8 +89,8 @@ $('table').on('click','.btnConsultar', function(){
 	}).done(function(data){
 		var infonombre = document.getElementById('nombreUsuario')
 		infonombre.innerHTML = data.nombreUsuario;
-		var infocontraseña= document.getElementById('contraseñaUsuario')
-		infocontraseña.innerHTML = data.password;
+		var infocontrasena= document.getElementById('contraseñaUsuario')
+		infocontrasena.innerHTML = data.password;
 	})	
 })
 
