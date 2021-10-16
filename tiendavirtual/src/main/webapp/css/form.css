@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+body{
+    padding: 0px;
+    margin: 0px;
+}
+form{
+    width: 50%;
+    height: 400px;
+    position: relative;
+    left: 25%; /*izquierda = 25%, ancho =50%, derecha=25%*/
+    top: 20px;
+}
+h2{ 
+    text-align: center;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+.inputs{
+    width: 60%;
+    position: relative;
+    left: 20%;
+    top: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Pacifico', cursive;
+}
+::placeholder { 
+    color: black; 
+}
+.upload{
+    position: absolute;
+    left: 40%; /*em rem unidades absolutas de medida se usan horizontalmente*/ 
+    width: 20%;
+    top: 270px; /*cm inch unidades relativas de medida se usan verticalmente*/ /*responsive design*/
+    background-color: midnightblue;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.upload:hover{
+    background-color: rgba(25, 25, 112, 0.815);
+    cursor: pointer;
+}
+.fa-file-upload{
+    font-size: 20px;
+    color: white;
+}
+#fileUpload{
+    display: none;
+}
+.button{
+    position: relative;
+    top: 40px;
+    left: 30%; /*izquierda= 30%, ancho=40% , derecha= 30% */
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+.button:hover{ /* cuando se pasa el mouse por encima*/
+    background-color: rgba(135, 135, 146, 0.753);
+}
+

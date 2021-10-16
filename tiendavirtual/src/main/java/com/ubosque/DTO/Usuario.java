@@ -1,7 +1,7 @@
 package com.ubosque.DTO;
 
 public class Usuario {
-	//atributos de la clase
+	//Attributes de la class
 	private int cedulaUsuario;
 	private String emailUsuario;
 	private String nombreUsuario;
