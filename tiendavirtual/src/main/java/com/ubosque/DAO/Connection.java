@@ -1,12 +1,15 @@
 package com.ubosque.DAO;
 
-import java.sql.SQLException;
+//import java.sql.*;
+
 import java.sql.DriverManager;
+import java.sql.SQLException;
+
 
 public class Connection {
 	String database="tienda";
 	String user="root";
-	String password="admin";
+	String password="welcome123";
 	String url= "jdbc:mysql://localhost/"+database;
 	java.sql.Connection connection = null;
 	
@@ -16,7 +19,7 @@ public class Connection {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection=DriverManager.getConnection(url, user, password);
 			if(connection!=null) {
-				System.out.println("Conexión exitosa a la base de datos");
+				System.out.println("ConexiÃ³n exitosa a la base de datos");
 			}
 		}catch(SQLException e){
 			e.getMessage();
