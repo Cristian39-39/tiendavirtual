@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.sql.DriverManager;
 
 public class Connection {
-    String database="tiendagrupo60";
+    String database="tiendagrupo60_7";
     String user="root";
     String password= "admin123";
     String hostname= "tiendagrupo60.c47knbsonjdi.us-east-2.rds.amazonaws.com";
