@@ -76,7 +76,9 @@ var saveme =  $.ajax({
 
 $('table').on('click','.btnConsultar', function(){
 	var cedula = $(this).attr('id')
+	console.log ('esta aqui]')
 	$.ajax({
+		
 		type: "GET",
 		url: "http://localhost:8080/Usuarios/"+cedula,
 		dataType: "json",
@@ -85,11 +87,10 @@ $('table').on('click','.btnConsultar', function(){
 			
 		}
 		
-		
 	}).done(function(data){
 		var infonombre = document.getElementById('nombreUsuario')
 		infonombre.innerHTML = data.nombreUsuario;
-		var infocontrasena= document.getElementById('contraseñaUsuario')
+		var infocontrasena= document.getElementById('contrasenaUsuario')
 		infocontrasena.innerHTML = data.password;
 	})	
 })
