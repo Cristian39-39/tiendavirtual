@@ -4,10 +4,10 @@ public class Producto {
 
 	
 	private int codigoProducto;
-	private String nombreProducto; 
-	private int nitproveedor;
-	private double precioCompra;
 	private double ivacompra;
+	private int nitproveedor;
+	private String nombreProducto; 
+	private double precioCompra;
 	private double precioVenta;
 	
 	public int getCodigoProducto() {
@@ -16,11 +16,11 @@ public class Producto {
 	public void setCodigoProducto(int codigoProducto) {
 		this.codigoProducto = codigoProducto;
 	}
-	public String getNombreProducto() {
-		return nombreProducto;
+	public double getIvacompra() {
+		return ivacompra;
 	}
-	public void setNombreProducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
+	public void setIvacompra(double ivacompra) {
+		this.ivacompra = ivacompra;
 	}
 	public int getNitproveedor() {
 		return nitproveedor;
@@ -28,17 +28,17 @@ public class Producto {
 	public void setNitproveedor(int nitproveedor) {
 		this.nitproveedor = nitproveedor;
 	}
+	public String getNombreProducto() {
+		return nombreProducto;
+	}
+	public void setNombreProducto(String nombreProducto) {
+		this.nombreProducto = nombreProducto;
+	}
 	public double getPrecioCompra() {
 		return precioCompra;
 	}
 	public void setPrecioCompra(double precioCompra) {
 		this.precioCompra = precioCompra;
-	}
-	public double getIvacompra() {
-		return ivacompra;
-	}
-	public void setIvacompra(double ivacompra) {
-		this.ivacompra = ivacompra;
 	}
 	public double getPrecioVenta() {
 		return precioVenta;
@@ -46,6 +46,4 @@ public class Producto {
 	public void setPrecioVenta(double precioVenta) {
 		this.precioVenta = precioVenta;
 	}
-	
-	
 }

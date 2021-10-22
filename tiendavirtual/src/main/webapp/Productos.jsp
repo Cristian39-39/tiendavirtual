@@ -22,6 +22,7 @@
 			<th>precioCompra</th>
 			<th>Iva</th>
 			<th>precioVenta</th>
+			<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody id = "cuerpoTabla">

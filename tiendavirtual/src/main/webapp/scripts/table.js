@@ -1,6 +1,3 @@
-/**
- * 
- */
 var saveme =  $.ajax({
         type: "GET",
         url: "http://localhost:8080/Usuarios/Lista", //ruta de la API consultaremos.
@@ -75,9 +72,7 @@ var saveme =  $.ajax({
 
 $('table').on('click','.btnConsultar', function(){
 	var cedula = $(this).attr('id')
-	console.log ('esta aqui]')
 	$.ajax({
-		
 		type: "GET",
 		url: "http://localhost:8080/Usuarios/"+cedula,
 		dataType: "json",
@@ -86,13 +81,13 @@ $('table').on('click','.btnConsultar', function(){
 			
 		}
 		
+		
 	}).done(function(data){
 		document.form2.input6.value=data.cedulaUsuario
 		document.form2.input7.value=data.emailUsuario
 		document.form2.input8.value=data.nombreUsuario
 		document.form2.input9.value=data.password
 		document.form2.input10.value=data.usuario
-
 	})	
 })
 

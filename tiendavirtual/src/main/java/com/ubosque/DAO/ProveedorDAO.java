@@ -4,37 +4,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 import com.ubosque.DTO.Proveedor;
-import com.ubosque.DTO.Usuario;
 
 public class ProveedorDAO {
 	//Creation CRUD
 	public ArrayList<Proveedor> ListProv(){
 		ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
-	Connection connection = new Connection();
+		Connection connection = new Connection();
 
-	try {
-		PreparedStatement statement = connection.getConnection().prepareStatement("SELECT * FROM proveedores");
-		ResultSet result = statement.executeQuery();
-		while (result.next()) {
-			 Proveedor proveedor = new Proveedor();
-			 proveedor.setNitProveedor(Integer.parseInt(result.getString("nitproveedor")));
-             proveedor.setCiudadProveedor(result.getString("ciudad_proveedor"));
-             proveedor.setDireccionProveedor(result.getString("direccion_proveedor"));
-             proveedor.setNombreProveedor(result.getString("nombre_proveedor"));
-             proveedor.setTelefonoProveedor(result.getString("telefono_proveedor"));
-                    
-             proveedores.add(proveedor);
+		try {
+			PreparedStatement statement = connection.getConnection().prepareStatement("SELECT * FROM proveedores");
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				 Proveedor proveedor = new Proveedor();
+				 proveedor.setNitProveedor(Integer.parseInt(result.getString("nitproveedor")));
+	             proveedor.setCiudadProveedor(result.getString("ciudad_proveedor"));
+	             proveedor.setDireccionProveedor(result.getString("direccion_proveedor"));
+	             proveedor.setNombreProveedor(result.getString("nombre_proveedor"));
+	             proveedor.setTelefonoProveedor(result.getString("telefono_proveedor"));
+	                    
+	             proveedores.add(proveedor);
+			}
+			result.close();
+			statement.close();
+		}catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "no se pudo realizar la consulta\n"+e);
 		}
-		result.close();
-		statement.close();
-	}catch (SQLException e) {
-		JOptionPane.showMessageDialog(null, "no se pudo realizar la consulta\n"+e);
-	}
-	return proveedores;
+		return proveedores;
 	}
 
 	public Proveedor saveProveedor(Proveedor proveedor) {
@@ -93,7 +91,6 @@ public class ProveedorDAO {
 		}catch(SQLException e) {
 			e.getMessage();
 		}
-		
 	}
 	
 	public void deleteProveedor(int nit) {
@@ -107,6 +104,5 @@ public class ProveedorDAO {
 		}catch(SQLException e) {
 			e.getMessage();
 		}
-		
 	}	
 }

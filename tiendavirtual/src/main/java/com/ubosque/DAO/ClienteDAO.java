@@ -12,49 +12,46 @@ public class ClienteDAO {
 	public ArrayList<Cliente> ListaCliente(){
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 		Connection connection = new Connection();
-		//CLiente Cliente = new CLiente();
-	try {
-		PreparedStatement statement = connection.getConnection().prepareStatement("SELECT * FROM clientes");
-		ResultSet result = statement.executeQuery();
-		while (result.next()) {
-			 Cliente cliente = new Cliente();
-			 cliente.setCedulaCliente(Integer.parseInt(result.getString("cedula_cliente")));
-			 cliente.setNombreCliente(result.getString("nombre_cliente"));
-			 cliente.setDirreccionCliente(result.getString("dirrecion_cliente"));
-			 cliente.setTelefonoCliente(result.getString("telefono_cliente"));
-			 cliente.setEmailCliente(result.getString("email_cliente"));
-             
-	         clientes.add(cliente);
+		
+		try {
+			PreparedStatement statement = connection.getConnection().prepareStatement("SELECT * FROM clientes");
+			ResultSet result = statement.executeQuery();
+			while (result.next()) {
+				 System.out.println("regreso de la base de datos");
+				 Cliente cliente = new Cliente();
+				 cliente.setCedulaCliente(Integer.parseInt(result.getString("cedula_cliente")));
+				 cliente.setDireccionCliente(result.getString("direccion_cliente"));
+				 cliente.setEmailCliente(result.getString("email_cliente"));
+				 cliente.setNombreCliente(result.getString("nombre_cliente"));
+				 cliente.setTelefonoCliente(result.getString("telefono_cliente"));
+	             
+		         clientes.add(cliente);
+			}
+			result.close();
+			statement.close();
+		}catch (SQLException e) {
+			System.out.println("fallo la base de datos");
+			JOptionPane.showMessageDialog(null, "no se pudo realizar la consulta\n"+e);
 		}
-		result.close();
-		statement.close();
-	}catch (SQLException e) {
-		JOptionPane.showMessageDialog(null, "no se pudo realizar la consulta\n"+e);
-			
-	}
-	return clientes;
-						
+		return clientes;				
 	}
 
 	public Cliente saveCliente(Cliente cliente) {
-	Connection connection = new Connection();
+		Connection connection = new Connection();
 		try {
 			String query ="INSERT INTO clientes VALUES (?,?,?,?,?)";
 			PreparedStatement statement = connection.getConnection().prepareStatement(query);
 			statement.setInt(1, cliente.getCedulaCliente());
-			statement.setString(2, cliente.getNombreCliente());
-			statement.setString(3, cliente.getDirreccionCliente());
-			statement.setString(4, cliente.getTelefonoCliente());
-			statement.setString(5, cliente.getEmailCliente());
+			statement.setString(2, cliente.getDireccionCliente());
+			statement.setString(3, cliente.getEmailCliente());
+			statement.setString(4, cliente.getNombreCliente());
+			statement.setString(5, cliente.getTelefonoCliente());
 			statement.executeUpdate();
 			statement.close();
-
 		}catch (SQLException e) {
 			e.getMessage();
 		}
-
 		return cliente;
-		// TODO Auto-generated method stub
 	}
 
 	public Cliente readClienteByID(int cedula) {
@@ -67,26 +64,26 @@ public class ClienteDAO {
 				ResultSet result= statement.executeQuery();
 				while(result.next()) {
 					cliente.setCedulaCliente(Integer.parseInt(result.getString("cedula_cliente")));
-					cliente.setNombreCliente(result.getString("nombre_cliente"));
-					cliente.setDirreccionCliente(result.getString("dirrecion_cliente"));
-					cliente.setTelefonoCliente(result.getString("telefono_cliente"));
+					cliente.setDireccionCliente(result.getString("direccion_cliente"));
 					cliente.setEmailCliente(result.getString("email_cliente"));
+					cliente.setNombreCliente(result.getString("nombre_cliente"));
+					cliente.setTelefonoCliente(result.getString("telefono_cliente"));
 				}
 				result.close();
 				statement.close();
 			}catch (SQLException e) {
 				e.getMessage();
 			}
-			// TODO Auto-generated method stub
 			return cliente;
 		}
+	
 	public void updateCliente(Cliente cliente) {
 		Connection connection = new Connection();
 		try {
-			String query = "UPDATE clientes SET nombre_cliente =?,dirreccion_ciente=?,telefono_cliente=?,email_cliente=? WHERE cedula_cliente=?";
+			String query = "UPDATE clientes SET nombre_cliente =?,direccion_cliente=?,telefono_cliente=?,email_cliente=? WHERE cedula_cliente=?";
 			PreparedStatement statement = connection.getConnection().prepareStatement(query);
 			statement.setString(1, cliente.getNombreCliente());
-			statement.setString(2, cliente.getDirreccionCliente());
+			statement.setString(2, cliente.getDireccionCliente());
 			statement.setString(3, cliente.getTelefonoCliente());
 			statement.setString(4, cliente.getEmailCliente());
 			statement.setInt(5, cliente.getCedulaCliente());
@@ -95,7 +92,6 @@ public class ClienteDAO {
 		}catch(SQLException e) {
 			e.getMessage();
 		}
-		
 	}
 	
 	public void deleteCliente(int cedula) {
@@ -109,7 +105,5 @@ public class ClienteDAO {
 		}catch(SQLException e) {
 			e.getMessage();
 		}
-		
 	}	
 }
-

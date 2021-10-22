@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 	UsuarioDAO usuarioDAO = new UsuarioDAO();
 	
-	@RequestMapping("/Lista")
+	@GetMapping("/Lista")
 	public ArrayList<Usuario> listaUsuario(){
 		
 		return usuarioDAO.ListUsers();

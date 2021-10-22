@@ -45,16 +45,16 @@
     
        <form class ="form2" name="form2" id="form2">
      <h2>Registrar cliente</h2>
-        <input type="number" class="inputs" id="input1" name="inputCedula" placeholder="Cedula">
-        <input type="text" class="inputs" id="input2" name="inputNombre" placeholder="Nombre">
-        <input type="text" class="inputs" id="input3" name="inputDirreccion" placeholder="Dirrecion">
-        <input type="number" class="inputs" id="input4" name="inputTelefono" placeholder="Telefono">
-        <input type="email" class="inputs" id="input5" name="inputEmail" placeholder="Email">
+        <input type="number" class="inputs" id="input6" name="inputCedula" placeholder="Cedula">
+        <input type="text" class="inputs" id="input7" name="inputNombre" placeholder="Nombre">
+        <input type="text" class="inputs" id="input8" name="inputDirreccion" placeholder="Dirrecion">
+        <input type="number" class="inputs" id="input9" name="inputTelefono" placeholder="Telefono">
+        <input type="email" class="inputs" id="input10" name="inputEmail" placeholder="Email">
         <input type="submit" name="create" id="actualizarCliente" class="button" value="ACTUALIZAR">
     </form>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-    <script src="scripts/table.js"></script>
+    <script src="scripts/tableClientes.js"></script>
 </body>
 </html>

@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 var saveme =  $.ajax({
         type: "GET",
         url: "http://localhost:8080/Proveedores/Lista", //ruta de la API consultaremos.
@@ -67,9 +63,6 @@ var saveme =  $.ajax({
 			  button.appendChild(icon);
 	          columna6.appendChild(button2);
 			  button2.appendChild(icon2);
-
-             
-	       
          });
       }
  });
@@ -81,11 +74,8 @@ $('table').on('click','.btnConsultar', function(){
 		url: "http://localhost:8080/Proveedores/"+nit,
 		dataType: "json",
 		error: function (){
-			alert("Error en la petición");
-			
-		}
-		
-		
+			alert("Error en la petición");		
+		}		
 	}).done(function(data){
 		document.form2.input6.value=data.nitProveedor
 		document.form2.input7.value=data.ciudadProveedor
