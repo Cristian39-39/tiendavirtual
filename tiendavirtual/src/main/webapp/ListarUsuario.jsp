@@ -32,27 +32,24 @@
             </tr>
         </tfoot>
 	</table>
-	<label id = "nombreUsuario"></label>
-	<label id = "contraseñaUsuario"></label>
-	<label id = "emailUsuario"></label>
 	
-	 <form class ="form1">
+	 <form class ="form1" name="form1" id="form1">
         <h2>Registrar usuario</h2>
         <input type="number" class="inputs" id="input1" name="inputCedula" placeholder="Cedula">
         <input type="email" class="inputs" id="input2" name="inputEmail" placeholder="Email">
-        <input type="text" class="inputs" id="input3" name="inputNombre" placeholder="Nombre">
+        <input type="text" class="inputs" id="input3" name="input3" placeholder="Nombre">
         <input type="password" class="inputs" id="input4" name="inputPassword" placeholder="Contraseña">
         <input type="text" class="inputs" id="input5" name="inputUsuario" placeholder="Usuario">
         <input type="submit" name="create" id="crearUsuario" class="button" value="REGISTRAR">
     </form>
     
-       <form class ="form2">
+       <form class ="form2" name="form2" id="form2">
         <h2>Actualizar usuario</h2>
-        <input type="number" class="inputs" id="input6" name="inputCedula" placeholder="Cedula">
-        <input type="email" class="inputs" id="input7" name="inputEmail" placeholder="Email">
-        <input type="text" class="inputs" id="input8" name="inputNombre" placeholder="Nombre">
-        <input type="password" class="inputs" id="input9" name="inputPassword" placeholder="Contraseña">
-        <input type="text" class="inputs" id="input10" name="inputUsuario" placeholder="Usuario">
+        <input type="number" class="inputs" id="input6" name="input6" placeholder="Cedula">
+        <input type="email" class="inputs" id="input7" name="input7" placeholder="Email">
+        <input type="text" class="inputs" id="input8" name="input8" placeholder="Nombre">
+        <input type="password" class="inputs" id="input9" name="input9" placeholder="Contraseña">
+        <input type="text" class="inputs" id="input10" name="input10" placeholder="Usuario">
         <input type="submit" name="create" id="actualizarUsuario" class="button" value="ACTUALIZAR">
     </form>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>

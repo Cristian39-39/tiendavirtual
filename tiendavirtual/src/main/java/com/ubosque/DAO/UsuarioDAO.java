@@ -43,14 +43,17 @@ public class UsuarioDAO {
 		try {
 			String query ="INSERT INTO usuarios VALUES (?,?,?,?,?)";
 			PreparedStatement statement = connection.getConnection().prepareStatement(query);
-
+			statement.setInt(1, usuario.getCedulaUsuario());
+			statement.setString(2, usuario.getEmailUsuario());
+			statement.setString(3, usuario.getNombreUsuario());
+			statement.setString(4, usuario.getPassword());
+			statement.setString(5, usuario.getUsuario());
+			statement.executeUpdate();
+			statement.close();
 		}catch (SQLException e) {
 			e.getMessage();
 		}
-
-		return usuario;
-		// TODO Auto-generated method stub
-		
+		return usuario;		
 	}
 
 	public Usuario readUserByID(int cedula) {
@@ -67,30 +70,44 @@ public class UsuarioDAO {
 				usuario.setNombreUsuario((result.getString("nombre_usuario")));
 				usuario.setPassword((result.getString("Password")));
 				usuario.setUsuario((result.getString("usuario")));
-				
-
-
 			}
 			result.close();
 			statement.close();
 		}catch (SQLException e) {
 			e.getMessage();
 		}
-		// TODO Auto-generated method stub
 		return usuario;
 	}
 
 	public void updateUser(Usuario usuario) {
-		// TODO Auto-generated method stub
+		Connection connection = new Connection();
+		try {
+			String query = "UPDATE usuarios SET email_usuario=?,nombre_usuario=?,password=?,usuario=? WHERE cedula_usuario=?";
+			PreparedStatement statement = connection.getConnection().prepareStatement(query);
+			statement.setString(1, usuario.getEmailUsuario());
+			statement.setString(2, usuario.getNombreUsuario());
+			statement.setString(3, usuario.getPassword());
+			statement.setString(4, usuario.getUsuario());
+			statement.setInt(5, usuario.getCedulaUsuario());
+			statement.executeUpdate();
+			statement.close();
+		}catch(SQLException e) {
+			e.getMessage();
+		}
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void deleteUser(int cedula) {
+		Connection connection = new Connection();
+		try {
+			String query = "DELETE FROM usuarios WHERE cedula_usuario=?";
+			PreparedStatement statement = connection.getConnection().prepareStatement(query);
+			statement.setInt(1, cedula);
+			statement.executeUpdate();
+			statement.close();
+		}catch(SQLException e) {
+			e.getMessage();
+		}
+		
+	}	
 }

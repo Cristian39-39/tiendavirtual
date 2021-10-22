@@ -6,7 +6,6 @@ var saveme =  $.ajax({
         url: "http://localhost:8080/Usuarios/Lista", //ruta de la API consultaremos.
       
         success: function(data) {
-        	console.log(data)
           $.each(data, function(i, item) {
 	          lista = document.getElementById("cuerpoTabla");
 	          var tr = document.createElement("tr");
@@ -88,10 +87,12 @@ $('table').on('click','.btnConsultar', function(){
 		}
 		
 	}).done(function(data){
-		var infonombre = document.getElementById('nombreUsuario')
-		infonombre.innerHTML = data.nombreUsuario;
-		var infocontrasena= document.getElementById('contrasenaUsuario')
-		infocontrasena.innerHTML = data.password;
+		document.form2.input6.value=data.cedulaUsuario
+		document.form2.input7.value=data.emailUsuario
+		document.form2.input8.value=data.nombreUsuario
+		document.form2.input9.value=data.password
+		document.form2.input10.value=data.usuario
+
 	})	
 })
 
@@ -106,59 +107,40 @@ $('table').on('click', '.btnEliminar',function(){
     })
 })
 //PUT= actualizar UPDATE
-$('#actualizarUsuario').click(function(event){
-    var cedula = $("#input6}").val();
-    var email = $("#input7").val();
-    var nombre = $("#input8").val();
-    var clave = $("#input9").val();
-    var usuario = $("#input10").val();
+$('#actualizarUsuario').click(function(){
+
     
     //JSON
     var user={
-        cedulaUsuario:cedula,
-        emailUsuario: email,
-          nombreUsuario: nombre,
-          password: clave,
-          usuario: usuario
+        cedulaUsuario:document.form2.input6.value,
+        emailUsuario: document.form2.input7.value,
+        nombreUsuario: document.form2.input8.value,
+        password: document.form2.input9.value,
+        usuario: document.form2.input10.value
     }
+    console.log(user)
     $.ajax({
-        type:"POST",
+        type:"PUT",
         data:JSON.stringify(user), //esto permite convertir el string de user a objeto JSON
         url:"http://localhost:8080/Usuarios/",
         contentType:"application/json"
-    })
-    
+    }) 
 })
-
-     
-
-
-
-
 
 //POST= crear INSERT
-$('#crearUsuario').click(function(event){
-    var cedula = $("#input1").val();
-    var email = $("#input2").val();
-    var nombre = $("#input3").val();
-    var clave = $("#input4").val();
-    var usuario = $("#input5").val();
-    
+$('#crearUsuario').click(function(){
     //JSON
     var user={
-        cedulaUsuario:cedula,
-        emailUsuario: email,
-          nombreUsuario: nombre,
-          password: clave,
-          usuario: usuario
+	    cedulaUsuario:document.form1.input1.value,
+	    emailUsuario: document.form1.input2.value,
+	    nombreUsuario: document.form1.input3.value,
+	    password: document.form1.input4.value,
+	    usuario: document.form1.input5.value
     }
     $.ajax({
         type:"POST",
         data:JSON.stringify(user), //esto permite convertir el string de user a objeto JSON
         url:"http://localhost:8080/Usuarios/",
         contentType:"application/json"
-    })
-    
+    })    
 })
-
-     
